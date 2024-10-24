@@ -1,6 +1,6 @@
 export const isAdminUser = function (user: any) {
   if (process.env.ADMIN_USERS) {
-    const allowedAdmins = 'voyagersocialio@gmail.com';
+    const allowedAdmins = JSON.parse(process.env.ADMIN_USERS);
 
     return user && allowedAdmins.includes(user.sub);
   } else {
