@@ -10,16 +10,19 @@ import prisma from '@/app/api/utils/prisma';
 import { getSession } from '@auth0/nextjs-auth0';
 import { getOpenAI } from '@/app/api/utils/openai';
 
+// Function to extract the assistant ID from the request URL
 const getId = (req: Request) => {
   const url = new URL(req.url);
   return url.pathname.split('/').splice(-3, 1)[0];
 };
 
+// Function to extract the file ID from the request URL
 const getFileId = (req: Request) => {
   const url = new URL(req.url);
   return url.pathname.split('/').splice(-1, 1)[0];
 };
 
+// Function to fetch assistant details from the database
 const getAssistant = async (id: string) => {
   return await prisma.assistant.findFirst({
     where: {
@@ -32,10 +35,12 @@ const getAssistant = async (id: string) => {
   });
 };
 
+// Function to validate the incoming token to ensure the user is authorized
 const validateIncomingToken = async (token: any, assistant: any) => {
   return !(token === null || assistant.organization.owner !== token.sub);
 };
 
+// Function to create a presigned URL for downloading a file from S3
 const createPresignedGet = async (
   file: string,
   expires: number = 3600
@@ -58,6 +63,7 @@ const createPresignedGet = async (
   }
 };
 
+// Function to delete a file from S3
 async function deleteFileFromS3(file: string): Promise<any> {
   let configuration = { region: process.env.AWS_REGION };
   // @ts-ignore
@@ -77,9 +83,12 @@ async function deleteFileFromS3(file: string): Promise<any> {
   }
 }
 
+// Handler for GET requests to fetch a file
 export async function GET(req: NextRequest, res: NextResponse) {
+  // Extract assistant ID from the request
   let assistantId = getId(req);
 
+  // Fetch assistant details from the database
   let assistant = await getAssistant(assistantId);
   if (!assistant) {
     return Response.json(
@@ -88,14 +97,18 @@ export async function GET(req: NextRequest, res: NextResponse) {
     );
   }
 
+  // Extract file ID from the request
   let fileId = getFileId(req);
+  // Get the user session
   let session = await getSession();
 
+  // Validate the incoming token to ensure the user is authorized
   if (!(await validateIncomingToken(session?.user, assistant))) {
     return Response.json({ message: 'Unauthorized' }, { status: 401 });
   }
 
   try {
+    // Fetch file details from the database
     let file = await prisma.file.findFirst({
       where: {
         id: fileId,
@@ -105,6 +118,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
     if (!file) {
       return Response.json({ message: 'File not found' }, { status: 404 });
     }
+    // Generate the file name with extension
     let fileName = file.id + path.extname(file.originalFileName);
     // @ts-ignore
     file.downloadUrl = await createPresignedGet(fileName.trim());
@@ -116,8 +130,11 @@ export async function GET(req: NextRequest, res: NextResponse) {
   }
 }
 
+// Handler for DELETE requests to delete a file
 export async function DELETE(req: NextRequest, res: NextResponse) {
+  // Extract assistant ID from the request
   let assistantId = getId(req);
+  // Fetch assistant details from the database
   let assistant = await getAssistant(assistantId);
   if (!assistant) {
     return Response.json(
@@ -126,14 +143,18 @@ export async function DELETE(req: NextRequest, res: NextResponse) {
     );
   }
 
+  // Extract file ID from the request
   let fileId = getFileId(req);
+  // Get the user session
   let session = await getSession();
 
+  // Validate the incoming token to ensure the user is authorized
   if (!(await validateIncomingToken(session?.user, assistant))) {
     return Response.json({ message: 'Unauthorized' }, { status: 401 });
   }
 
   try {
+    // Fetch file details from the database
     let file = await prisma.file.findFirst({
       where: {
         id: fileId,

@@ -16,11 +16,13 @@ function toNodeReadable(readable: any) {
   return Readable.from(readable);
 }
 
+// Extract assistant ID from the request URL
 const getId = (req: Request) => {
   const url = new URL(req.url);
   return url.pathname.split('/').splice(-2, 1)[0];
 };
 
+// Fetch assistant details from the database
 const getAssistant = async (id: string) => {
   return await prisma.assistant.findFirst({
     where: {
@@ -34,6 +36,7 @@ const getAssistant = async (id: string) => {
   });
 };
 
+// Get the requested folder from the request headers
 const getRequestedFolder = (req: Request) => {
   // TODO: When there are future folders, we can optionally get them from the folderId
   let requestedFolder = req.headers.get('X-Folder');
@@ -44,13 +47,18 @@ const getRequestedFolder = (req: Request) => {
   return requestedFolder;
 };
 
+// Validate the incoming token to ensure the user is authorized
 const validateIncomingToken = async (user: any, assistant: any) => {
   return !(user === null || assistant.organization.owner !== user.sub);
 };
 
+// Handle POST request to upload a file
 export async function POST(req: NextRequest, res: Response) {
+  // Get the user session
   const session = await getSession();
+  // Extract assistant ID from the request
   let assistantId = getId(req);
+  // Fetch assistant details from the database
   let assistant = await getAssistant(assistantId);
   if (!assistant) {
     return Response.json(
@@ -59,13 +67,16 @@ export async function POST(req: NextRequest, res: Response) {
     );
   }
 
+  // Validate the incoming token
   if (!(await validateIncomingToken(session?.user, assistant))) {
     return Response.json({ message: 'Unauthorized' }, { status: 401 });
   }
 
+  // Get the requested folder from the request headers
   let requestedFolder = getRequestedFolder(req);
 
   let folder: any = null;
+  // Find the folder in the assistant's folders
   assistant.Folder.map((item: any) => {
     if (item.name === requestedFolder) {
       folder = item;
@@ -109,14 +120,17 @@ export async function POST(req: NextRequest, res: Response) {
     });
   }
 
+  // Generate a unique file ID
   let fileId = 'file_' + ulid();
 
+  // Extract headers from the request
   let headers = {};
   req.headers.forEach((value: string, key: string, parent) => {
     // @ts-ignore
     headers[key] = value;
   });
 
+  // Initialize Busboy for file upload handling
   const busboy = new Busboy({ headers: headers } as any);
   let file = {};
   let uploadedFile: any;
@@ -153,14 +167,16 @@ export async function POST(req: NextRequest, res: Response) {
     }
   );
 
+  // Convert the request body to a Node.js readable stream and pipe it to Busboy
   const nodeReadable = toNodeReadable(req.body);
   nodeReadable.pipe(busboy);
 
+  // Return a promise that resolves when the file upload is finished
   return new Promise<Response>((resolve) => {
     busboy.on('finish', async () => {
       if (uploadedFile) {
         try {
-          // Now you can create a read stream from the saved file
+          // Create a read stream from the saved file
           const readStream = fs.createReadStream(uploadedFile.filePath);
 
           // Upload the file to S3
@@ -190,6 +206,7 @@ export async function POST(req: NextRequest, res: Response) {
               });
           }
 
+          // Save file details to the database
           file = await prisma.file.create({
             data: {
               id: fileId,
@@ -220,25 +237,33 @@ export async function POST(req: NextRequest, res: Response) {
     });
   });
 }
-
+// Handle GET request to fetch files
 export async function GET(req: NextRequest, res: NextResponse) {
+  // Get the user session
   const session = await getSession();
+  // Extract assistant ID from the request
   let assistantId = getId(req);
+  // Fetch assistant details from the database
   let assistant = await getAssistant(assistantId);
   if (!assistant) {
+    // If the assistant does not exist, return a 404 response
     return Response.json(
       { message: 'Assistant does not exist' },
       { status: 404 }
     );
   }
 
+  // Validate the incoming token to ensure the user is authorized
   if (!(await validateIncomingToken(session?.user, assistant))) {
+    // If the user is not authorized, return a 401 response
     return Response.json({ message: 'Unauthorized' }, { status: 401 });
   }
 
+  // Get the requested folder from the request headers
   let requestedFolder = getRequestedFolder(req);
 
   let folder: any = null;
+  // Find the folder in the assistant's folders
   assistant.Folder.map((item: any) => {
     if (item.name === requestedFolder) {
       folder = item;
@@ -246,9 +271,11 @@ export async function GET(req: NextRequest, res: NextResponse) {
   });
 
   if (!folder) {
+    // If the folder does not exist, return a 404 response
     return Response.json({ message: 'Folder does not exist' }, { status: 404 });
   }
 
+  // Fetch files from the database that belong to the requested folder
   let files = await prisma.file.findMany({
     where: {
       folderId: folder.id,
@@ -257,12 +284,14 @@ export async function GET(req: NextRequest, res: NextResponse) {
 
   let updates = false;
   if (assistant?.modelProviderId === 'openai') {
+    // Iterate over the files to check their status
     files.map(async (file) => {
       // @ts-ignore
       if (!['completed', 'cancelled', 'failed'].includes(file.object.status)) {
         updates = true;
         let openai = getOpenAI(assistant);
 
+        // Retrieve the file status from OpenAI's vector store
         let vectorStoreFileResponse =
           // @ts-ignore
           await openai.beta.vectorStores.files.retrieve(
@@ -277,6 +306,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
         // @ts-ignore
         file.object.last_error = vectorStoreFileResponse.last_error;
 
+        // Update the file status in the database
         await prisma.file.update({
           where: {
             id: file.id,
@@ -291,6 +321,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
   }
 
   if (updates) {
+    // If there were updates, fetch the updated files from the database
     files = await prisma.file.findMany({
       where: {
         folderId: folder.id,

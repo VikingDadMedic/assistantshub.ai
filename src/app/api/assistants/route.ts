@@ -4,10 +4,14 @@ import prisma from '@/app/api/utils/prisma';
 import { getSession } from '@auth0/nextjs-auth0';
 import { getOpenAIWithKey } from '@/app/api/utils/openai';
 
+// Handler for GET requests to fetch assistants for the authenticated user
 export async function GET(req: NextRequest, res: NextResponse) {
+  // Get the session information
   const session = await getSession();
 
+  // Check if the user is authenticated
   if (session?.user) {
+    // Fetch assistants for the authenticated user
     let assistants = await prisma.assistant.findMany({
       where: {
         organizationOwner: session?.user.sub,
@@ -23,6 +27,8 @@ export async function GET(req: NextRequest, res: NextResponse) {
         authenticatedUsersOnly: true,
       },
     });
+
+    // Map the assistants to include additional properties
     let assistantsCollection = assistants.map((assistant) => {
       if (assistant.object) {
         // @ts-ignore
@@ -39,6 +45,8 @@ export async function GET(req: NextRequest, res: NextResponse) {
       }
       return assistant.object;
     });
+
+    // Return the assistants in the response with status 200
     return Response.json(assistantsCollection, { status: 200 });
   } else {
     // Not Signed in
@@ -46,10 +54,14 @@ export async function GET(req: NextRequest, res: NextResponse) {
   }
 }
 
+// Handler for POST requests to create a new assistant
 export async function POST(req: NextRequest, res: NextResponse) {
+  // Get the session information
   const session = await getSession();
 
+  // Check if the user is authenticated
   if (session?.user) {
+    // Fetch the organization for the authenticated user
     let organization = await prisma.organization.findFirst({
       where: {
         owner: session?.user.sub,
@@ -57,9 +69,12 @@ export async function POST(req: NextRequest, res: NextResponse) {
       },
     });
 
+    // Check if the organization exists
     if (organization) {
+      // Parse the request body
       const body = await req.json();
 
+      // Extract and delete model-related properties from the request body
       let modelId = body.modelId;
       delete body.modelId;
 
@@ -71,18 +86,24 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
       try {
         let createResponse = null;
+
+        // Check if the model provider is OpenAI
         if (modelProviderId === 'openai') {
+          // Get the OpenAI object with the provided key
           const openai = await getOpenAIWithKey(modelProviderKeyId);
 
+          // Set the model in the request body
           body.model = modelId;
 
+          // Create a new assistant using OpenAI API
           createResponse = await openai.beta.assistants.create(body);
         } else {
-          // Google or Groq doesn't provide an API for its assistants so we just store everything else into the database
+          // For other providers, store the assistant information directly in the database
           createResponse = body;
           createResponse.id = 'asst_g' + ulid();
         }
 
+        // Save the assistant information to the database using upsert (create or update)
         await prisma.assistant.upsert({
           where: {
             id: createResponse.id,
@@ -108,12 +129,15 @@ export async function POST(req: NextRequest, res: NextResponse) {
           },
         });
 
+        // Return the created assistant in the response with status 201
         return Response.json(createResponse, { status: 201 });
       } catch (err: any) {
+        // Log the error and return an error response with the error message and status
         console.log(err);
         return Response.json({ message: err.message }, { status: err.status });
       }
     } else {
+      // Return an error response if the organization does not exist
       return Response.json(
         { message: 'OpenAI API Key does not exist' },
         { status: 400 }
