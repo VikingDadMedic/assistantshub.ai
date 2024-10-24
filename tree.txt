@@ -1,0 +1,194 @@
+.
+├── CONTRIBUTING.md
+├── DISCLAIMER.md
+├── Dockerfile
+├── LICENSE
+├── README.md
+├── docker-compose.yml
+├── next-env.d.ts
+├── next.config.js
+├── package.json
+├── pnpm-lock.yaml
+├── postcss.config.js
+├── prisma
+│   ├── migrations
+│   │   ├── 20240116054414_init
+│   │   │   └── migration.sql
+│   │   └── migration_lock.toml
+│   ├── schema.prisma
+│   └── seed.ts
+├── public
+│   ├── images
+│   │   ├── assistant.jpg
+│   │   ├── backgrounds
+│   │   │   ├── 1.jpg
+│   │   │   └── 1.png
+│   │   ├── files
+│   │   │   ├── csv.png
+│   │   │   ├── doc.png
+│   │   │   ├── docx.png
+│   │   │   ├── generic-blue.png
+│   │   │   ├── generic-multiple.png
+│   │   │   ├── generic-orange.png
+│   │   │   ├── generic-outline.png
+│   │   │   ├── generic-white.png
+│   │   │   ├── generic.png
+│   │   │   ├── html.png
+│   │   │   ├── pdf.png
+│   │   │   ├── ppt.png
+│   │   │   ├── text.png
+│   │   │   └── xls.png
+│   │   ├── getcredentials.jpg
+│   │   ├── getstarted.jpg
+│   │   ├── getstarted.png
+│   │   ├── model-providers
+│   │   │   ├── anthropic.png
+│   │   │   ├── google.png
+│   │   │   ├── groq.png
+│   │   │   └── openai.svg
+│   │   └── people
+│   │       ├── 1.jpg
+│   │       ├── 10.jpg
+│   │       └── avatar
+│   │           ├── 1.jpg
+│   ├── landing.jpg
+│   ├── logo.png
+│   ├── og-image.png
+│   ├── pages
+│   │   ├── cookies.html
+│   │   ├── privacy.html
+│   │   └── terms.html
+│   ├── robots.txt
+│   └── twitter-image.png
+├── src
+│   ├── app
+│   │   ├── admin
+│   │   │   ├── AdminSideNavigation.tsx
+│   │   │   ├── AdminSideNavigationContainer.tsx
+│   │   │   ├── dashboard
+│   │   │   │   ├── AssistantMetrics.tsx
+│   │   │   │   ├── UserMetrics.tsx
+│   │   │   │   └── page.tsx
+│   │   │   ├── layout.tsx
+│   │   │   ├── marketplace
+│   │   │   │   └── page.tsx
+│   │   │   ├── plugins
+│   │   │   │   └── page.tsx
+│   │   │   ├── providers
+│   │   │   │   ├── data
+│   │   │   │   └── model
+│   │   │   ├── settings
+│   │   │   │   └── page.tsx
+│   │   │   └── theme
+│   │   │       └── page.tsx
+│   │   ├── android-chrome-192x192.png
+│   │   ├── android-chrome-512x512.png
+│   │   ├── api
+│   │   │   ├── anthropic
+│   │   │   │   └── threads
+│   │   │   ├── assistants
+│   │   │   │   ├── [id]
+│   │   │   │   └── route.ts
+│   │   │   ├── auth
+│   │   │   │   └── [auth0]
+│   │   │   ├── google
+│   │   │   │   └── threads
+│   │   │   ├── groq
+│   │   │   │   └── threads
+│   │   │   ├── metrics
+│   │   │   │   └── route.ts
+│   │   │   ├── models
+│   │   │   │   ├── [id]
+│   │   │   │   └── route.ts
+│   │   │   ├── openai
+│   │   │   │   ├── threads
+│   │   │   │   └── util.ts
+│   │   │   ├── settings
+│   │   │   │   └── keys
+│   │   │   └── utils
+│   │   │       ├── anthropic.ts
+│   │   │       ├── gemini.ts
+│   │   │       ├── groq.ts
+│   │   │       ├── messages.ts
+│   │   │       ├── openai.ts
+│   │   │       └── prisma.ts
+│   │   ├── apple-touch-icon.png
+│   │   ├── assistants
+│   │   │   ├── CreateAssistant.tsx
+│   │   │   ├── CreateAssistantModal.tsx
+│   │   │   ├── GetStarted.tsx
+│   │   │   ├── ListAssistants.tsx
+│   │   │   ├── [id]
+│   │   │   │   ├── AssistantContext.ts
+│   │   │   │   ├── SideNavigation.tsx
+│   │   │   │   ├── analytics
+│   │   │   │   ├── chat
+│   │   │   │   ├── client.ts
+│   │   │   │   ├── conversations
+│   │   │   │   ├── customize
+│   │   │   │   ├── documents
+│   │   │   │   ├── integrate
+│   │   │   │   ├── layout.tsx
+│   │   │   │   └── settings
+│   │   │   ├── client.ts
+│   │   │   ├── layout.tsx
+│   │   │   └── page.tsx
+│   │   ├── browserconfig.xml
+│   │   ├── embed
+│   │   │   └── [id]
+│   │   │       ├── layout.tsx
+│   │   │       └── page.tsx
+│   │   ├── favicon-16x16.png
+│   │   ├── favicon-32x32.png
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── link
+│   │   │   └── [id]
+│   │   │       ├── layout.tsx
+│   │   │       └── page.tsx
+│   │   ├── mstile-150x150.png
+│   │   ├── page.tsx
+│   │   ├── safari-pinned-tab.svg
+│   │   ├── settings
+│   │   │   ├── ModelProviderKeys.tsx
+│   │   │   ├── ModelProviders.tsx
+│   │   │   ├── client.ts
+│   │   │   ├── layout.tsx
+│   │   │   └── page.tsx
+│   │   ├── site.webmanifest
+│   │   ├── theme.ts
+│   │   ├── types
+│   │   │   ├── assistant.ts
+│   │   │   ├── message.ts
+│   │   │   ├── model.ts
+│   │   │   └── thread.ts
+│   │   └── utils
+│   │       ├── assistant.ts
+│   │       ├── date.ts
+│   │       ├── fetcher.ts
+│   │       ├── hash.ts
+│   │       ├── store.ts
+│   │       ├── streamAsyncIterator.ts
+│   │       └── useDebounce.ts
+│   ├── components
+│   │   ├── AccessDenied.tsx
+│   │   ├── AdministrationMenu.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Header.tsx
+│   │   ├── Home.tsx
+│   │   ├── SettingsMenu.tsx
+│   │   ├── SignInMenu.tsx
+│   │   ├── SignOutMenu.tsx
+│   │   ├── Unauthenticated.tsx
+│   │   ├── UploadZone.tsx
+│   │   ├── UserDropdown.tsx
+│   │   └── UserProfile.tsx
+│   └── utils
+│       └── user.ts
+├── tailwind.config.ts
+├── tree.txt
+├── tsconfig.json
+└── vercel.json
+
+106 directories, 223 files
