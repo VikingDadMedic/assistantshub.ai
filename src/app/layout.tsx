@@ -39,11 +39,11 @@ export default function RootLayout({
           property='og:description'
           content='Roxie Hub enables businesses and individuals to create, integrate, and deploy personalized AI assistants quickly and efficiently. Discover how our platform fosters AI collaboration for achieving goals.'
         />
-        <meta property='og:url' content='https://roxie.ai' />
+        <meta property='og:url' content='https://roxie-hub.vercel.app/' />
         <meta property='og:type' content='website' />
         <meta
           property='og:image'
-          content='https://roxie.ai/og-image.png'
+          content='https://roxie-hub.vercel.app//og-image.png'
         />
         <meta name='twitter:card' content='summary_large_image' />
         <meta
@@ -56,7 +56,7 @@ export default function RootLayout({
         />
         <meta
           name='twitter:image'
-          content='https://roxie.ai/twitter-image.png'
+          content='https://roxie-hub.vercel.app//twitter-image.png'
         />
         <ThemeModeScript />
       </head>

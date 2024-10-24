@@ -13,8 +13,8 @@ export function PageFooter() {
       <div className='w-full text-center'>
         <div className='w-full justify-between sm:flex sm:items-center sm:justify-between'>
           <FooterBrand
-            href='https://roxie.ai/'
-            src='https://roxie.ai/logo.png'
+            href='https://roxie-hub.vercel.app//'
+            src='https://roxie-hub.vercel.app//logo.png'
             alt='Roxie Hub Logo'
           />
           <FooterLinkGroup>
@@ -40,7 +40,7 @@ export function PageFooter() {
               icon={BsLinkedin}
             />
             <Footer.Icon
-              href='https://github.com/assistants-hub/roxie.ai'
+              href='https://github.com/assistants-hub/roxie-hub.vercel.app/'
               icon={BsGithub}
             />
           </div>
