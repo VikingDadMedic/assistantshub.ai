@@ -162,6 +162,7 @@ Visit http://localhost:3001 in your browser to see your AI assistant in action.
 
 ## Contributing
 
+
 Your contributions can help make Roxie Hub even better. If you're interested in contributing, please read our [CONTRIBUTING.md](./CONTRIBUTING.md) file to learn how you can get involved.
 
 ## Support
