@@ -169,7 +169,7 @@ export default function EditAssistant(props: EditAssistantProps) {
                   </option>
                 ) : (
                   <option key={'default'} value={''}>
-                    &#128272; Assistants Hub&apos;s API Keys
+                    &#128272; Roxie Hub&apos;s API Keys
                   </option>
                 )}
               </Select>

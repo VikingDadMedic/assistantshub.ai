@@ -207,7 +207,7 @@ export default function CreateAssistantModal(props: CreateAssistantProps) {
                           );
                         })}
                     <option key={'default'} value={''}>
-                      &#128272; Assistants Hub&apos;s API Keys
+                      &#128272; Roxie Hub&apos;s API Keys
                     </option>
                   </Select>
                   <div className={'mt-2 text-xs text-gray-500'}>

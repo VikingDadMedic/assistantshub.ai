@@ -19,13 +19,13 @@ export const UserProfile = async () => {
           <div className='pt-3 lg:text-lg'>My Assistants</div>
         </NavbarLink>
         <NavbarLink
-          href='https://docs.assistantshub.ai/'
+          href='https://docs.roxie.ai/'
           className='justify-end'
         >
           <div className='pt-3 lg:text-lg'>Docs</div>
         </NavbarLink>
         <NavbarLink
-          href='mailto:support@assistantshub.ai'
+          href='mailto:support@roxie.ai'
           className='justify-end'
         >
           <div className='pt-3 lg:text-lg'>Help</div>
@@ -37,7 +37,7 @@ export const UserProfile = async () => {
       <NavbarToggle />
       <NavbarCollapse className='rtl:space-x-reverse'>
         <NavbarLink
-          href='https://docs.assistantshub.ai/'
+          href='https://docs.roxie.ai/'
           className='justify-end'
         >
           <div className='pt-1 lg:text-lg'>Docs</div>

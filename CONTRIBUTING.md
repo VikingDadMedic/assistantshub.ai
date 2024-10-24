@@ -1,13 +1,13 @@
-# Contributing to Assistants Hub
+# Contributing to Roxie Hub
 
-First off, thank you for considering contributing to Assistants Hub! It's people like you that make Assistants Hub such a great tool. We welcome contributions from everyone as part of our mission to democratize AI assistant development. Here are some guidelines that we ask contributors to follow to make the process as smooth as possible.
+First off, thank you for considering contributing to Roxie Hub! It's people like you that make Roxie Hub such a great tool. We welcome contributions from everyone as part of our mission to democratize AI assistant development. Here are some guidelines that we ask contributors to follow to make the process as smooth as possible.
 
 ## Getting Started
 
 - Make sure you have a [GitHub account](https://github.com/signup/free).
 - Submit a ticket for your issue or feature request, assuming one does not already exist.
   - Clearly describe the issue, including steps to reproduce it.
-  - If it's a new feature, explain why you think it would be a good addition to Assistants Hub.
+  - If it's a new feature, explain why you think it would be a good addition to Roxie Hub.
 - Fork the repository on GitHub.
 
 ## Making Changes
@@ -27,13 +27,13 @@ First off, thank you for considering contributing to Assistants Hub! It's people
 ## Submitting Changes
 
 - Push your changes to a topic branch in your fork of the repository.
-- Submit a pull request to the Assistants Hub repository.
+- Submit a pull request to the Roxie Hub repository.
 - The core team will look at Pull Requests on a regular basis.
 - After feedback has been given, we expect responses within two weeks. After two weeks, we may close the pull request if it isn't showing any activity.
 
 ## Reporting Bugs
 
-- Use GitHub Issues to report bugs for Assistants Hub.
+- Use GitHub Issues to report bugs for Roxie Hub.
 - Write detailed information:
   - Use a clear and descriptive title.
   - Describe the exact steps to reproduce the bug.
@@ -42,7 +42,7 @@ First off, thank you for considering contributing to Assistants Hub! It's people
 
 ## Requesting Features
 
-- Use GitHub Issues to request features or suggest improvements for Assistants Hub.
+- Use GitHub Issues to request features or suggest improvements for Roxie Hub.
 - Use a clear and descriptive title.
 - Provide a detailed explanation of the feature and its benefits.
 - Include any relevant examples or mockups.
@@ -53,6 +53,6 @@ The core team looks at Pull Requests on a regular basis and provides feedback. A
 
 ## Community
 
-We want to foster an inclusive and friendly community around Assistants Hub. We expect everyone to follow our [Code of Conduct](CODE_OF_CONDUCT.md). Please make sure you read and understand it.
+We want to foster an inclusive and friendly community around Roxie Hub. We expect everyone to follow our [Code of Conduct](CODE_OF_CONDUCT.md). Please make sure you read and understand it.
 
-Thank you for contributing to Assistants Hub, and we look forward to your contributions!
+Thank you for contributing to Roxie Hub, and we look forward to your contributions!

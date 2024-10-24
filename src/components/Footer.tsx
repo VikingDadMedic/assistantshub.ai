@@ -13,9 +13,9 @@ export function PageFooter() {
       <div className='w-full text-center'>
         <div className='w-full justify-between sm:flex sm:items-center sm:justify-between'>
           <FooterBrand
-            href='https://assistantshub.ai/'
-            src='https://assistantshub.ai/logo.png'
-            alt='Assistants Hub Logo'
+            href='https://roxie.ai/'
+            src='https://roxie.ai/logo.png'
+            alt='Roxie Hub Logo'
           />
           <FooterLinkGroup>
             <Footer.Link href='/pages/terms.html'>Terms</Footer.Link>
@@ -27,7 +27,7 @@ export function PageFooter() {
         <div className='w-full sm:flex sm:items-center sm:justify-between'>
           <FooterCopyright
             href='#'
-            by='Assistants Hub'
+            by='Roxie Hub'
             year={new Date().getFullYear()}
           />
           <div className='mt-4 flex space-x-6 sm:mt-0 sm:justify-center'>
@@ -40,7 +40,7 @@ export function PageFooter() {
               icon={BsLinkedin}
             />
             <Footer.Icon
-              href='https://github.com/assistants-hub/assistantshub.ai'
+              href='https://github.com/assistants-hub/roxie.ai'
               icon={BsGithub}
             />
           </div>

@@ -1,39 +1,39 @@
 <div align="center">
 <img width="150px" src="./docs/assistants-hub-logo.png" />
 
-# Assistants Hub
+# Roxie Hub
 
 ### The Open Source Assistants Management Portal
 
 <p>
-<img alt="Vercel Build Status" src="https://vercelbadge.vercel.app/api/assistants-hub/assistantshub.ai" />
-<img alt="GitHub Last Commit" src="https://img.shields.io/github/last-commit/assistants-hub/assistantshub.ai" />
-<img alt="" src="https://img.shields.io/github/repo-size/assistants-hub/assistantshub.ai" />
-<img alt="GitHub Issues" src="https://img.shields.io/github/issues/assistants-hub/assistantshub.ai" />
-<img alt="GitHub Pull Requests" src="https://img.shields.io/github/issues-pr/assistants-hub/assistantshub.ai" />
+<img alt="Vercel Build Status" src="https://vercelbadge.vercel.app/api/assistants-hub/roxie.ai" />
+<img alt="GitHub Last Commit" src="https://img.shields.io/github/last-commit/assistants-hub/roxie.ai" />
+<img alt="" src="https://img.shields.io/github/repo-size/assistants-hub/roxie.ai" />
+<img alt="GitHub Issues" src="https://img.shields.io/github/issues/assistants-hub/roxie.ai" />
+<img alt="GitHub Pull Requests" src="https://img.shields.io/github/issues-pr/assistants-hub/roxie.ai" />
 <img alt="GitHub License" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
 </p>
 
 ---
 
 <p align="center">
-  <a href="https://docs.assistantshub.ai/docs/category/demos">Demo</a> •
-  <a href="https://docs.assistantshub.ai/docs/intro">Tutorials</a> •
-  <a href="https://assistantshub.ai">Assistants Hub</a> •
+  <a href="https://docs.roxie.ai/docs/category/demos">Demo</a> •
+  <a href="https://docs.roxie.ai/docs/intro">Tutorials</a> •
+  <a href="https://roxie.ai">Roxie Hub</a> •
 </p>
 </div>
 
 ---
 
-Welcome to Assistants Hub, where you can **Build, Integrate, and Deploy AI Assistants in Minutes**. This project leverages the power of Next.js, OpenAI, Google and other AI services to provide a streamlined platform for creating sophisticated AI assistants. Our mission is to democratize AI development, making it accessible for developers, hobbyists, and businesses to innovate and implement AI solutions effortlessly.
+Welcome to Roxie Hub, where you can **Build, Integrate, and Deploy AI Assistants in Minutes**. This project leverages the power of Next.js, OpenAI, Google and other AI services to provide a streamlined platform for creating sophisticated AI assistants. Our mission is to democratize AI development, making it accessible for developers, hobbyists, and businesses to innovate and implement AI solutions effortlessly.
 
 ---
 
 ![Landing](./docs/landing.png)
 
-## Why should you use Assistants Hub?
+## Why should you use Roxie Hub?
 
-Assistants Hub is not another LLM user interface, it is a comprehensive platform that enables businesses and AI practitioners to build, integrate, and deploy AI assistants to their end users with ease. Here are some reasons why you should consider using Assistants Hub:
+Roxie Hub is not another LLM user interface, it is a comprehensive platform that enables businesses and AI practitioners to build, integrate, and deploy AI assistants to their end users with ease. Here are some reasons why you should consider using Roxie Hub:
 
 - **Rapid Build and Rollout**: Quickly create and deploy your AI assistants with our intuitive setup and detailed documentation.
 - **Comprehensive Platform**: Utilize advanced analytics, conversation history tracking, and extensive customization options to tailor your assistant to your needs.
@@ -50,9 +50,9 @@ Assistants Hub is not another LLM user interface, it is a comprehensive platform
 - **Document Management**: Organize and manage your assistant's documents for quick reference and retrieval.
 - **Function Integration**: Extend your assistant's capabilities by integrating custom functions and services.
 
-Explore our [Guides](https://docs.assistantshub.ai/docs/category/guides) to get started with Assistants Hub or check out our [Demos](https://docs.assistantshub.ai/docs/category/demos) to see our AI assistants in action.
+Explore our [Guides](https://docs.roxie.ai/docs/category/guides) to get started with Roxie Hub or check out our [Demos](https://docs.roxie.ai/docs/category/demos) to see our AI assistants in action.
 
-Below is an AI assistant demo generated with Assistants Hub available at [Math Whiz Kid](https://docs.assistantshub.ai/docs/demos/math-tutor)
+Below is an AI assistant demo generated with Roxie Hub available at [Math Whiz Kid](https://docs.roxie.ai/docs/demos/math-tutor)
 
 <div style="text-align: center;">
   <img src="./docs/math-whiz-kid.gif" alt="Math Whiz Kid" width="380px"/>
@@ -62,7 +62,7 @@ Below is an AI assistant demo generated with Assistants Hub available at [Math W
 
 ### OpenAI Models
 
-All models that support [OpenAI's Assistants API](https://platform.openai.com/docs/models/overview) are supported by [Assistants Hub](https://assistantshub.ai).
+All models that support [OpenAI's Assistants API](https://platform.openai.com/docs/models/overview) are supported by [Roxie Hub](https://roxie.ai).
 
 | Model Name         | Provider | Streaming <br/>Responses | Documents                | Functions                |
 | ------------------ | -------- | ------------------------ | ------------------------ | ------------------------ |
@@ -84,7 +84,7 @@ The gemini-1.5-pro-latest model is a large-scale language model developed by Goo
 
 ### Anthropic Models
 
-All models that support [Anthropic API](https://docs.anthropic.com/en/docs/models-overview) are supported by [Assistants Hub](https://assistantshub.ai).
+All models that support [Anthropic API](https://docs.anthropic.com/en/docs/models-overview) are supported by [Roxie Hub](https://roxie.ai).
 
 | Model Name        | Provider  | Streaming <br/>Responses | Documents                | Functions                |
 | ----------------- | --------- | ------------------------ | ------------------------ | ------------------------ |
@@ -95,7 +95,7 @@ All models that support [Anthropic API](https://docs.anthropic.com/en/docs/model
 
 ### Gorq Cloud
 
-All models that support [Gorq Cloud API](https://console.groq.com/docs/models) are supported by [Assistants Hub](https://assistantshub.ai).
+All models that support [Gorq Cloud API](https://console.groq.com/docs/models) are supported by [Roxie Hub](https://roxie.ai).
 
 | Model Name         | Provider | Streaming <br/>Responses | Documents                | Functions                |
 | ------------------ | -------- | ------------------------ | ------------------------ | ------------------------ |
@@ -106,11 +106,11 @@ All models that support [Gorq Cloud API](https://console.groq.com/docs/models) a
 
 ## Getting Started
 
-To get started with Assistants Hub, you'll need to have Node.js installed on your machine. Follow the steps below to set up your development environment.
+To get started with Roxie Hub, you'll need to have Node.js installed on your machine. Follow the steps below to set up your development environment.
 
 ```bash
-git clone https://github.com/assistants-hub/assistantshub.ai
-cd assistantshub.ai
+git clone https://github.com/assistants-hub/roxie.ai
+cd roxie.ai
 pnpm install
 ```
 
@@ -125,13 +125,13 @@ pnpm install
 1. Clone the repository
 
    ```bash
-   git clone https://github.com/assistants-hub/assistantshub.ai
+   git clone https://github.com/assistants-hub/roxie.ai
    ```
 
 2. Navigate to the project directory
 
    ```bash
-   cd assistantshub.ai
+   cd roxie.ai
    ```
 
 3. Install the dependencies
@@ -162,7 +162,7 @@ Visit http://localhost:3001 in your browser to see your AI assistant in action.
 
 ## Contributing
 
-Your contributions can help make Assistants Hub even better. If you're interested in contributing, please read our [CONTRIBUTING.md](./CONTRIBUTING.md) file to learn how you can get involved.
+Your contributions can help make Roxie Hub even better. If you're interested in contributing, please read our [CONTRIBUTING.md](./CONTRIBUTING.md) file to learn how you can get involved.
 
 ## Support
 
@@ -170,11 +170,11 @@ Encountered a bug or need help? Open an issue in our GitHub repository, and we'l
 
 ## License
 
-Assistants Hub is released under the [MIT license](./LICENSE), promoting open and collaborative development.
+Roxie Hub is released under the [MIT license](./LICENSE), promoting open and collaborative development.
 
 ## Disclaimers
 
-Please review our [DISCLAIMER.md](./DISCLAIMER.md) to understand the limitations and legal disclaimers associated with using Assistants Hub.
+Please review our [DISCLAIMER.md](./DISCLAIMER.md) to understand the limitations and legal disclaimers associated with using Roxie Hub.
 
 ## References
 
@@ -188,4 +188,4 @@ We extend our gratitude to:
 OpenAI, Anthropic, Groq and Google for their exceptional APIs that powers the intelligence of our assistants.
 The Next.js community, for providing the robust framework that makes this project possible.
 
-Thank you for exploring Assistants Hub. We're eager to see the incredible AI assistants you'll build and deploy!
+Thank you for exploring Roxie Hub. We're eager to see the incredible AI assistants you'll build and deploy!

@@ -55,7 +55,7 @@ export default function AdminSideNavigation() {
           </div>
           <div className='mb-3 text-sm text-cyan-900 dark:text-gray-400'>
             Changing these settings will affect all users for this instance of
-            Assistants Hub. Please proceed with caution.
+            Roxie Hub. Please proceed with caution.
           </div>
         </Sidebar.CTA>
       </Sidebar>
