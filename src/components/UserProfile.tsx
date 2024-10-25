@@ -18,30 +18,30 @@ export const UserProfile = async () => {
         <NavbarLink href='/assistants' className='justify-end'>
           <div className='pt-3 lg:text-lg'>My Assistants</div>
         </NavbarLink>
-        <NavbarLink
+        {/* <NavbarLink
           href='https://docs.roxie.ai/'
           className='justify-end'
         >
           <div className='pt-3 lg:text-lg'>Docs</div>
-        </NavbarLink>
-        <NavbarLink
+        </NavbarLink> */}
+        {/* <NavbarLink
           href='mailto:support@roxie.ai'
           className='justify-end'
         >
           <div className='pt-3 lg:text-lg'>Help</div>
-        </NavbarLink>
+        </NavbarLink> */}
       </NavbarCollapse>
     </>
   ) : (
     <>
       <NavbarToggle />
       <NavbarCollapse className='rtl:space-x-reverse'>
-        <NavbarLink
+        {/* <NavbarLink
           href='https://docs.roxie.ai/'
           className='justify-end'
         >
           <div className='pt-1 lg:text-lg'>Docs</div>
-        </NavbarLink>
+        </NavbarLink> */}
         <SignInMenu />
       </NavbarCollapse>
     </>
